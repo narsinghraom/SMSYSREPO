@@ -1,0 +1,56 @@
+
+.main{
+	position: relative;
+	
+	padding: 10px 5px 15px 20px;
+
+	
+}
+
+div {
+    background: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    padding: 10px;
+    
+}
+
+a button {
+    background: #1aa3ff;
+    border: none;
+      color: #fff;
+    display: inline-block;
+    height: 30px;
+    line-height: 28px;
+    position: relative;
+    text-decoration: none;
+  width: 210.5px;
+    
+}
+
+button:before{
+    background: #1aa3ff	;
+    border: none;
+    content: '';
+    display: block;
+    height: 22px;
+     left: 200px;
+    position: absolute;
+      top: 4.5px;
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(50deg);
+    width: 22.8px;
+}
+	 button {
+    color: #fff;
+    background: none;
+    border: none;
+    font-weight: bold;
+    position: relative;
+    width: 155px;
+    height: 30px;
+    
+} 
+  
