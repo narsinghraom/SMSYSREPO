@@ -24,12 +24,15 @@ public interface DataService
 	 public Response searchByName(String studentname,String classname);
 	  public List<StudentBean> getName(String name);
 	  public List<String> getLastNameList(String lastname);
+	  public List<String> getAddressList(String residential_city );
+	  public List<AddressBean> getAddressCity(String residential_city);
 	  public List<StudentBean> getLastName(String lastname);
 	  public List<StudentBean> getFathername(String fathername);
 	  public List<StudentBean> getAdmissionId(String admissionId);
 
 	  public List<StudentBean> getvalues();
-	  public List<Object[]> getpaymentvalues();
+	 
 	  public List<StudentBean> getAdmissionId(int admissionId);
 	  public Response searchByClassOrName(String studentName,String studentClass);
+	  public Response searchByFirstName(String studentFname,String studentLname);
 }

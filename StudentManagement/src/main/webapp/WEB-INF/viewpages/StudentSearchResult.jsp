@@ -45,6 +45,7 @@ if(obj!=null)
 	<th>Date Of Birth</th>
 	<th>Gender</th>
 	<th>AdmissionSougth</th>
+	
 	<th>PrevoiusSchoolName</th>
 	<th>fatherFirstName</th>
 	<th>prensent_city</th>

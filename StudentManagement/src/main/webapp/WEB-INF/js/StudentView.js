@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	$("#contextpath").hide();
+	$("#contextpathfname").hide();
 
 });
 

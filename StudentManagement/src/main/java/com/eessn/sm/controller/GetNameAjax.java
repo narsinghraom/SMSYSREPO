@@ -14,8 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
+
+
+import com.eessn.sm.bean.AddressBean;
 import com.eessn.sm.bean.StudentBean;
 import com.eessn.sm.json.JsonResponse;
+import com.eessn.sm.json.Response;
 import com.eessn.sm.service.DataService;
 import com.google.gson.Gson;
 
@@ -59,6 +64,29 @@ public class GetNameAjax
 		String  result=new Gson().toJson(ListStringName);
 		response.getWriter().write(result);
 	}
+	
+	
+	@RequestMapping(value="/getAddressList",method=RequestMethod.GET)
+	public @ResponseBody
+	void getAddressList(@RequestParam("term") String address,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		List<String> ListAddressName=dataservice.getAddressList(address);
+		String  result=new Gson().toJson(ListAddressName);
+		response.getWriter().write(result);
+	}
+	
+	
+	@RequestMapping(value="/getAddressListData",method=RequestMethod.GET)
+	public @ResponseBody
+	void getAddressListData(@RequestParam("term") String addressCity,HttpServletRequest request,HttpServletResponse response) throws IOException{
+		List<AddressBean> adressList=dataservice.getAddressCity(addressCity);
+		
+	    String result=new Gson().toJson(adressList);
+		response.getWriter().write(result);
+		
+	}
+	
+	
+	
 	@RequestMapping(value="/getLastNameData",method=RequestMethod.GET)
 	public @ResponseBody
 	void getLastNameData(@RequestParam("term") String lastName,HttpServletRequest request,HttpServletResponse response) throws IOException{
@@ -83,20 +111,20 @@ public class GetNameAjax
 	
 	@RequestMapping(value="/getfnameData", method = RequestMethod.GET)
 	public @ResponseBody
-	void getfnameData(@RequestParam("term") String fname,HttpServletRequest request,HttpServletResponse response) throws IOException {
+	void getfnameData(@RequestParam("term") String fname,@RequestParam("term") String lname, HttpServletRequest request,HttpServletResponse response) throws IOException {
 	
 		JsonResponse jsonResponse=new JsonResponse();
-		/*StudentBean studentBean=new StudentBean();*/
-		/*List<StudentBean> getname=dataservice.getName(fname);*/
-		List<Object[]> getname=dataservice.getpaymentvalues();
 		
-		Iterator<Object[]> iterator=getname.iterator();
+		Response responseobj=new Response();
+		
+		responseobj=(Response) dataservice.searchByFirstName(fname, lname);		
+		/*Iterator<Response> iterator=getNameList.iterator();
 		while(iterator.hasNext())
 		{
 			jsonResponse.setStatus("SUCCESS");
-		/*	studentBean=(StudentBean)iterator.next();
-			jsonResponse.setResultObject(studentBean);*/
-		}
+			responseobj=(Response)iterator.next();
+			jsonResponse.setResultObject(responseobj);
+		}*/
 			
 			String result = new Gson().toJson(jsonResponse);
 			 response.getWriter().write(result);

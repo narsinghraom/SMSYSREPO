@@ -241,8 +241,51 @@ public class DataDaoImplementation implements DataDao {
 		}
 		return responseObj;
 	}
-	
 
+
+	public List<String> getAddressList(String residential_city) {
+		Session session=sessionFactory.openSession();
+		@SuppressWarnings("unchecked")
+		List<String> studentAddresslist=session.createQuery("select a.residential_city from AddressBean a where a.residential_city like '"+residential_city+"%'").list();
+		return studentAddresslist;
+	}
+
+
+	public List<AddressBean> getAddressCity(String residential_city) {
+		Session session=sessionFactory.openSession();
+		@SuppressWarnings("unchecked")
+		List<AddressBean> studentAddressList=session.createQuery("from AddressBean a where a.residential_city  like '"+residential_city+"%'").list();
+		return studentAddressList;
+	}
+
+
+	public Response searchByFirstName(String studentFname,
+			String studentLname) {
+		Response responseObj=new Response();
+		Session session=sessionFactory.openSession();
+		@SuppressWarnings("unchecked")
+		Query query =session.createQuery("from StudentBean s where s.firstName=:firstName and s.lastName=:lastName");
+		query.setParameter("firstName", studentFname);
+		query.setParameter("lastName", studentLname);
+		List<StudentBean> studentList =query.list();
+		if(studentList!=null && !studentList.isEmpty())
+		{
+		for(StudentBean studentBean:studentList)
+		{
+			if(studentBean !=null)
+			{
+				Query parentQuery=session.createQuery("from ParentBean p where p.rowrefId=:rowrefId");
+				parentQuery.setParameter("rowrefId", studentBean.getRowMappingId());
+				List<ParentBean> parentList=parentQuery.list();
+				responseObj.setListOfParent(parentList);
+			}
+		}
+		responseObj.setListOfStudent(studentList);
+		
+		}
+		return responseObj;
+	}
+}
 	/*public List<ParentBean> getfatherName(String name) {
 		Session session=sessionFactory.openSession();
 		@SuppressWarnings("unchecked")
@@ -255,4 +298,4 @@ public class DataDaoImplementation implements DataDao {
 
 	
 
-}
+

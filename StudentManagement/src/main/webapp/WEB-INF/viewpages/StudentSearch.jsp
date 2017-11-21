@@ -61,7 +61,7 @@ display:none;
 
 <div class="ui input">
   <input placeholder="Enter Name" type="text" name="studentname" id="fname" onkeydown="return getAllNameData('<%=request.getContextPath()%>/GetNameAjax/getNameData')" >
-  <input type="text" id="contextpath" value=<%=request.getContextPath()%>>
+  <input type="text" id="contextpathfname" value=<%=request.getContextPath()%>>
 </div> 
 
 <input type="submit" id="btn" value="SUBMIT"> 

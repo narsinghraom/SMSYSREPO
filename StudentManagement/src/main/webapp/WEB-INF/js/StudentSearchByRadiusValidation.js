@@ -2,6 +2,7 @@ $(document).ready(function(){
 	$("#span_serachelement").hide();
 	$("#span").hide();
 	$("#searchclass").hide();
+	$("#searchadress").hide();
 
 
 	
@@ -19,22 +20,32 @@ function validation(){
 	else{
 		return true;
 	}
+	
+	
+	
 }
+
 
 
 
 jQuery(function(){
     $("#searchId").click(function(){
+    	 
         var isChecked = jQuery("#searchelementradio:checked").val();
         
          if(!isChecked){
-           $("#span").show();
+        	 $("#span").show();
              return false;
-         }else  {
-            
-             return ;
          }
+        
+         else  {
+        	 $("#span").hide();
+             return  true;
+             }
+         
+ 
     });
+ 
     });
 
 
@@ -44,7 +55,10 @@ jQuery(function(){
 			{
 		if(this.id=="searchelementradio")
 		$("#searchId").hide();
+		$("#searchadress").hide();
 		$("#searchclass").show();
+		$("#span").hide();
+		$("#span_serachelement").hide();
 	});
 });
 
@@ -53,7 +67,9 @@ jQuery(function(){
 			{
 		if(this.id=="searchelementradio")
 		$("#searchclass").hide();
-		$("#searchId").show();
+		$("#searchId").hide();
+		$("#searchadress").show();
+		
 	});
 });
 
@@ -63,6 +79,7 @@ jQuery(function(){
 			{
 		if(this.id=="searchelementradio")
 		$("#searchclass").hide();
+		$("#searchadress").hide();
 		$("#searchId").show();
 	});
 });

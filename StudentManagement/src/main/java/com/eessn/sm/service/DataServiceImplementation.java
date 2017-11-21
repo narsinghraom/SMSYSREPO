@@ -58,10 +58,10 @@ public class DataServiceImplementation implements DataService {
 
 	public List<String> getNameList(String name) {
 		// TODO Auto-generated method stub
-		Response response=new Response();
-		DummyObject responseObject=RequestSharedObject.getRequestSharedObject().getDummyObject();
-		/*return dataDao.getNameList(name);*/
-		return null;
+		/*Response response=new Response();
+		DummyObject responseObject=RequestSharedObject.getRequestSharedObject().getDummyObject();*/
+		return dataDao.getNameList(name);
+		
 	}
 
 	public Response searchByName(String studentname,String classname) {
@@ -176,10 +176,7 @@ public class DataServiceImplementation implements DataService {
 		return dataDao.getvalues();
 	}
 
-	public List<Object[]> getpaymentvalues() {
-		// TODO Auto-generated method stub
-		return dataDao.getpaymentvalues();
-	}
+	
 
 	public List<StudentBean> getAdmissionId(int admissionId) {
 		// TODO Auto-generated method stub
@@ -189,6 +186,23 @@ public class DataServiceImplementation implements DataService {
 	public Response searchByClassOrName(String studentName, String studentClass) {
 		// TODO Auto-generated method stub
 		return dataDao.searchByClassOrName(studentName, studentClass);
+	}
+
+	
+	public List<String> getAddressList(String residential_city) {
+		// TODO Auto-generated method stub
+		return dataDao.getAddressList(residential_city);
+	}
+
+	public List<AddressBean> getAddressCity(String residential_city) {
+		// TODO Auto-generated method stub
+		return dataDao.getAddressCity(residential_city);
+	}
+
+	
+	public Response searchByFirstName(String studentFname, String studentLname) {
+		// TODO Auto-generated method stub
+		return dataDao.searchByFirstName(studentFname, studentLname);
 	}
 
 	

@@ -59,28 +59,31 @@ font-family:verdana, Helvetica;
   <option value="10">Tenth Class</option>
   </select>
   
-<input type="text" id="searchId" name="serchelement"  onkeydown="return getAllLastName('<%=request.getContextPath()%>/GetNameAjax/getLastNameData')">
+<input type="text" id="searchId" name="serchelement"  placeholder="Lastname" onkeydown="clearError()"  onclick="return getAllLastName('<%=request.getContextPath()%>/GetNameAjax/getLastNameData')">
+ <input type="text" id="contextpath" value=<%=request.getContextPath()%>> 
+ <input type="text" id="searchadress" name="serchelement" placeholder="city" onkeydown="clearError()"   onclick="return getAddressData'<%=request.getContextPath()%>/GetNameAjax/getAddressListData')"  >
  <input type="text" id="contextpathid" value=<%=request.getContextPath()%>> 
-
 <span id="span_serachelement" style="color: red;">Please select any option and enter some value to search</span> 
 <br></br>
 <p class='container'>
-search by class:<input type="radio" id="searchelementradio" name="searchelementradio"  value="class" class="searchclass"    >
-search by LastName:<input type="radio" id="searchelementradio" name="searchelementradio" value="lastname" class="searchname"  >
-search by address:<input type="radio" id="searchelementradio" name="searchelementradio" value="address" class="searchaddress" >
+<input type="radio" id="searchelementradio" name="searchelementradio"  value="class" class="searchclass" onkeydown="clearError()">search by class
+<input type="radio" id="searchelementradio" name="searchelementradio" value="lastname" class="searchname" onkeydown="clearError()"   >search by LastName
+<input type="radio" id="searchelementradio" name="searchelementradio" value="address" class="searchaddress" onkeydown="clearError()"  >search by address
 <span id="span" style="color: red;">Please select any of the radio button </span>
 </p>
 <br></br>
+
 
 <input type="submit" value="Search" onclick="return validation()" id="btn">
 </div>
 </form>
 
- 
+ <div id="RadiusErrorMessage" align="center" style="color: red;"></div>
  <table id="tables"  align="center" style="width:100%" >
    
 	
 </table>
+   
    
 	
 </body>

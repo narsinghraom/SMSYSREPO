@@ -87,10 +87,12 @@ $(document).ready(function(){
         <div id="tab-2" class="tab-content current" >
            <jsp:include page="StudentSearch.jsp"></jsp:include></div>
            
+        
+         <div id="tab-3" class="tab-content" >
+           <jsp:include page="Marks.jsp"></jsp:include></div>
+        
         </div>
-        
-        
-       <div  >
+       <div >
         <jsp:include page="StudentSearchResult.jsp"></jsp:include>
         
        </div>
